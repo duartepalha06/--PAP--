@@ -1,0 +1,23 @@
+SET GLOBAL max_allowed_packet=1073741824;
+
+CREATE DATABASE IF NOT EXISTS `steps`;
+USE `steps`;
+
+DROP TABLE IF EXISTS produto;
+DROP TABLE IF EXISTS utilizador;
+
+CREATE TABLE produto (
+    produtoId INT PRIMARY KEY AUTO_INCREMENT,
+    nomeProduto VARCHAR(255) NOT NULL,
+    descricao TEXT NOT NULL,
+    preco DECIMAL(10, 2)  NOT NULL,
+    rating DECIMAL(3, 1) NOT NULL,
+    foto LONGBLOB NOT NULL
+);
+
+CREATE TABLE Utilizador (
+    userID INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
